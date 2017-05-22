@@ -1,0 +1,381 @@
+%% This template can be used to write a paper for
+%% Computer Physics Communications using LaTeX.
+%% For authors who want to write a computer program description,
+%% an example Program Summary is included that only has to be
+%% completed and which will give the correct layout in the
+%% preprint and the journal.
+%% The `elsarticle' style is used and more information on this style
+%% can be found at 
+%% http://www.elsevier.com/wps/find/authorsview.authors/elsarticle.
+%%
+%%
+\documentclass[preprint,12pt]{elsarticle}
+
+%% Use the option review to obtain double line spacing
+%% \documentclass[preprint,review,12pt]{elsarticle}
+
+%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
+%% for a journal layout:
+%% \documentclass[final,1p,times]{elsarticle}
+%% \documentclass[final,1p,times,twocolumn]{elsarticle}
+%% \documentclass[final,3p,times]{elsarticle}
+%% \documentclass[final,3p,times,twocolumn]{elsarticle}
+%% \documentclass[final,5p,times]{elsarticle}
+%% \documentclass[final,5p,times,twocolumn]{elsarticle}
+
+%% if you use PostScript figures in your article
+%% use the graphics package for simple commands
+%% \usepackage{graphics}
+%% or use the graphicx package for more complicated commands
+%% \usepackage{graphicx}
+%% or use the epsfig package if you prefer to use the old commands
+%% \usepackage{epsfig}
+
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{amssymb}
+%% The amsthm package provides extended theorem environments
+%% \usepackage{amsthm}
+
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers after \end{frontmatter}.
+%% \usepackage{lineno}
+
+%% natbib.sty is loaded by default. However, natbib options can be
+%% provided with \biboptions{...} command. Following options are
+%% valid:
+
+%%   round  -  round parentheses are used (default)
+%%   square -  square brackets are used   [option]
+%%   curly  -  curly braces are used      {option}
+%%   angle  -  angle brackets are used    <option>
+%%   semicolon  -  multiple citations separated by semi-colon
+%%   colon  - same as semicolon, an earlier confusion
+%%   comma  -  separated by comma
+%%   numbers-  selects numerical citations
+%%   super  -  numerical citations as superscripts
+%%   sort   -  sorts multiple citations according to order in ref. list
+%%   sort&compress   -  like sort, but also compresses numerical citations
+%%   compress - compresses without sorting
+%%
+%% \biboptions{comma,round}
+
+% \biboptions{}
+
+%% This list environment is used for the references in the
+%% Program Summary
+%%
+\newcounter{bla}
+\newenvironment{refnummer}{%
+\list{[\arabic{bla}]}%
+{\usecounter{bla}%
+ \setlength{\itemindent}{0pt}%
+ \setlength{\topsep}{0pt}%
+ \setlength{\itemsep}{0pt}%
+ \setlength{\labelsep}{2pt}%
+ \setlength{\listparindent}{0pt}%
+ \settowidth{\labelwidth}{[9]}%
+ \setlength{\leftmargin}{\labelwidth}%
+ \addtolength{\leftmargin}{\labelsep}%
+ \setlength{\rightmargin}{0pt}}}
+ {\endlist}
+
+
+\begin{document}
+
+\begin{frontmatter}
+
+%% Title, authors and addresses
+
+%% use the tnoteref command within \title for footnotes;
+%% use the tnotetext command for the associated footnote;
+%% use the fnref command within \author or \address for footnotes;
+%% use the fntext command for the associated footnote;
+%% use the corref command within \author for corresponding author footnotes;
+%% use the cortext command for the associated footnote;
+%% use the ead command for the email address,
+%% and the form \ead[url] for the home page:
+%%
+%% \title{Title\tnoteref{label1}}
+%% \tnotetext[label1]{}
+%% \author{Name\corref{cor1}\fnref{label2}}
+%% \ead{email address}
+%% \ead[url]{home page}
+%% \fntext[label2]{}
+%% \cortext[cor1]{}
+%% \address{Address\fnref{label3}}
+%% \fntext[label3]{}
+
+\title{Analysis and Comparison of Intelligent Personal Assistants}
+
+%% use optional labels to link authors explicitly to addresses:
+%% \author[label1,label2]{<author name>}
+%% \address[label1]{<address>}
+%% \address[label2]{<address>}
+
+\author[a]{Oktay Bahceci\corref{author}}
+
+\address[a]{oktayb@kth.se}
+
+\newpage
+\begin{abstract}
+%% Text of abstract
+Intelligent Personal Assistants (IPA) are implemented and used in Operating Systems, Internet of Things (IOT), and a variety of other systems. Many implementations of IPAs exists today and companies such as Apple, Google and Microsoft all have their implementations as a major feature in their operating systems and devices.
+With the use of Natural Language Processing (NLP), Machine Learning (ML), Artificial Intelligence (AI), and prediction models from these fields in Computer Science (CS), as well as theory and techniques from Human-Computer Interaction (HCI), IPAs are becoming more intelligent and relevant. This paper aims to analyse and compare the current major implementations of IPAs in order to determine which implementation is the most developed at this moment in time and is contributing to the sustainable future of AI.
+
+\end{abstract}
+
+\begin{keyword}
+%% keywords here, in the form: keyword \sep keyword
+Intelligent Personal Assistant; Statistical Learning; Natural Language Processing; Machine Learning; Artificial Intelligence; Human-Computer Interaction.
+\end{keyword}
+
+\end{frontmatter}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Introduction}
+\textit{Intelligent Personal Assistants} (IPA) and their current software implementations exist in a range of applications, usually integrated in the Operating System (OS) from different developers and organizations, such as in personal computers, mobile computers and in \textit{Internet of Things} (IOT). The IPAs are implemented in different programming languages and behave differently but all fall under the same branches of computer science and concern themselves with similar problems \cite{russel2009}.
+
+Natural Language Processing (NLP) and Human-Computer Interaction (HCI) have always been essential parts for these type of systems, and more recently as the systems develop further, Machine Learning (ML) and Artificial Intelligence (AI) have become essential for the functionality of IPAs \cite{russel2009}.
+
+Apple, Google and Microsoft are organizations that have their own implementations of these kind of systems and are continuously integrating their implementations across all of their devices and services  \cite{googlenow2016, applesiri2016, microsoftcortana2016}.
+
+\subsection{Scope and Objectives}
+This paper will introduce theory, concepts and branches of Computer Science (CS) that are fundamental for building IPAs, followed by an introduction to some of the existing enterprise applications from three different companies, Apple, Google and Microsoft, in order to finally analyze and compare their behaviour. Thereafter, the current state and future state of these systems are discussed with predictions about their future behaviour and finally, the conclusion chapter deals with the current best implementation in combination with predictions about its future features. 
+
+\newpage
+
+\section{Background}
+This chapter, namely the \textit{background} chapter introduces the concepts, theories and models that are relevant to \textit{Intelligent Personal Assistants}. The first part covers a few definitions of essential parts of AI, followed by the fundamentals of some statistical learning methods and finally an introduction and discussion of \textit{Human-Computer Interaction} and its relevance to \textit{Natural Language Procession} in the context of IPAs.
+
+\subsection{Artificial Intelligence}
+Artificial intelligence (AI) is a scientific field which strives to \textit{build} and \textit{understand} intelligent entities. Existing formal definitions of AI address different dimensions such as \textit{behaviour}, \textit{thought processing} and \textit{reasoning}. The distinguishing between \textit{human} and \textit{rational} behaviour is often mentioned in the field. To create AI the two components intelligence and tools are required. The field of Computer Science has created such tools \cite{russel2009}.
+
+\subsubsection{Agents}
+An agent is an entity that acts, from the Latin verb \textit{agere}, which means \textit{to do}. A computer program always act and do something, but an agent is excepted to do more. An agent is expected to be able to act autonomously, analyze and adapt to its environment and change, persist over a longer time period and finally create, understand and pursue goals \cite{russel2009}. 
+
+\subsubsection{Rational agent}
+A rational agent is an agent such that for each action and task, the agent always acts in such a way to achieve the best outcome. When there are uncertainties, the rational agent is considered to achieve the \textit{best} outcome \cite{russel2009}.
+
+\subsubsection{Intelligent agent}
+An \textit{Intelligent Agent} is a type of agent that is considered to be \textit{rational}, and with a set of design principles, developers are able to create successful agents that make the system  intelligent enough in order to complete certain, \textit{intelligent} tasks. IPAs are software agents that act on the behalf of the user in order to complete tasks and provide information. The communication between the entity and the user is usually based on voice inputs or commands \cite{russel2009}.
+
+\subsection{Statistical Learning}
+This chapter will include definitions of certain fields that are relevant for the creation of \textit{Intelligent Personal Assistants}.\textit{Artificial Intelligence}, \textit{Machine Learning} and \textit{Sentiment Analysis} are introduced together with its contexts and relevance to IPAs.
+
+\subsubsection{Machine Learning}
+Machine learning (ML) is a subfield of AI concerned with the implementation of algorithms that can learn autonomously \cite{russel2009}. Statistics and mathematical optimization provide methods and applications to the area of ML because of its strong connections with ML, where both areas aim at locating interesting patterns from data \cite{hand2001}.
+
+A major issue and drawback for the use of ML and classification models is the risk of over-fitting, which is when a learning algorithm overestimates the parameters in the training data. The opposite of this is \textit{bootstrapping}, which is creating fabricated data with statistical models with the help of a small sample data set. \cite{ticknor2013}.
+
+\subsubsection{Natural Language Processing}
+Natural language processing (NLP) is a field in artificial intelligence and linguistics concerned with interaction between computers and human natural language.
+As a part of \textit{Human-Computer Interaction}, NLP is concerned with enabling computers to derive and interpret human natural language. Recent work in NLP are algorithms based on ML and more specifically statistical machine learning \cite{russel2009,google2015}.
+
+State of the art applications of NLP consist of text classification, information extraction, sentiment analysis, machine translation and is applied to many different scientific areas \cite{google2015}. Discussed in depth in the next section, \textit{Sentiment Analysis} approaches have been applied to IPAs.
+
+\subsubsection{Sentiment Analysis}
+\textit{Sentiment Analysis} (SA), or \textit{Opinion Mining} (OM) is the use of NLP, text analysis and computational linguistics to identify and extract information (or \textit{features}) from texts \cite{doan2014}.
+
+In its current stage, automated SA is not able to be as accurate as human analysis. The automated sentiment analysis methods do not account for subtleties of context, environment, irony, human body language or tone. In human analysis, the inter-rater reliability plays a significant part, which is the degree of agreement among raters. According to recent studies, the human agreement rate in sentiment analysis is around 79-80\%. 
+\cite{pak2010,wiebe2005,mashable2010}. No IPA in enterprise form is considering any of the mentioned aspects and these will therefore not be discussed further.
+
+\subsubsection{Supervised Machine Learning}
+Supervised machine learning aims to predict output data sets ($y_1, y_2,...,y_n$) from given sets of input data ($x_1, x_2,..., x_n$) for $n$ observations. A general machine learning function is created for predicting output from the input that has not been a part of a training set. The predictions are formed by a training set of tuple data, such as, (($y_1, x_1), (y_2, x_2),..,(y_n, x_n)$), from a known set of input and output \cite{russel2009}.
+
+\subsubsection{Unsupervised Machine Learning}
+Unsupervised machine learning is the process of classifying data without access to labelled training data. Using $n$ observations of data ($x_1, x_2..., x_n$) the primary goal of the unsupervised machine learning method is to gather data with similar attributes and relationships into different groups. As labelled data is not provided, unsupervised methods usually require larger amounts of training data to perform equally as well as supervised machine learning methods
+\cite{russel2009}.
+
+\subsubsection{Artificial Neural Networks}
+In machine learning and cognitive science, \textit{Artificial Neural Networks} (ANNs) are a family of models inspired by biological neural networks, more specifically the human brain. Artificial neural networks are commonly constructed in layers where each layer plays a specific role in the network and contains a number of artificial neurons. Typically these layers are the input layer, the output layer and numerous hidden layers in between. The actual computation, processing and weighting of the neurons is done through the hidden layers and is crucial for the performance of the network \cite{olatunji2011}.
+
+It can be speculated that most entities and IPAs use various Artificial Neural Networks (ANN) or combinations of Artificial Neural Networks with other types of techniques, such as Bayesian regularized ANN. ANNs are preferred due to their ability to deal with nonlinear relationships, fuzzy and insufficient data, and the ability to learn from and adapt to changes in a short period of time \cite{das2013}.
+
+\newpage
+\section{Methods}
+This chapter describes used research methods and data collection approaches. Furthermore, the methods used for Sentiment and Data Analysis are described. 
+
+\subsection{Literature Study}
+Through research in academic articles, digital articles, papers and books within the area of AI, ML and CS, the theoretical principles of the field of IPAs has been analyzed. 
+
+The literature used has been accessed via Google Scholar and the KTH Library database using relevant keywords such as intelligent personal assistants, intelligent agents, machine learning, sentiment analysis, artificial neural networks, human-computer interaction. 
+
+Finally, corporate and SDK information regarding the three companies of choice has been fetched through their official websites.
+
+\section{Analysis and Results}
+This section introduces the analysis and results of the methods and background introduced in the previous sections of this text. The scope of this text is restricted to three different companies, namely \textit{Apple Inc.}, \textit{Google Inc.} and \textit{Microsoft Corporation}.
+
+\subsection{Apple Siri}
+Apple's Intelligent Personal Assistant is named \textit{Siri}. Siri is Apple's IPA and knowledge navigator, and is currently an integral part of their operating systems, namely \textit{iOS}, the operating system used for their smart phones and tablets, watchOS, which is the operating system for their smartwatches, namely \textit{Apple Watch}, and for their television hardware, the Apple TV, \textit{tvOS} operating system \cite{applesiri2016}.
+
+Currently, Siri is included on the iPhone 4S, iPhone 5, iPhone 5C, iPhone 5S, iPhone 6, iPhone 6 Plus, iPhone 6s, iPhone 7, iPhone 7 Plus, 5th generation iPod Touch, 6th generation iPod Touch, 3rd generation iPad, 4th generation iPad, iPad Air, iPad Air 2, all iPad Minis, iPad Pro, Apple Watch, and Apple TV \cite{applesiri2016}.
+
+Siri was introduced the year 2011 and as of early 2016, Siri supports 17 natural human languages. Currently, Siri can edit the state(s) of the following native applications coming with the operating systems; reminders, weather, stocks, messaging, email, calendar, contacts, notes, music, clocks, web browser, Wolfram Alpha, and Apple Maps \cite{imore2016}.
+
+\subsubsection{Background, Research $&$ Development}
+Little is known about Siri and its architecture, but there exists some knowledge about its background and internal structure.
+
+Siri's primary technical areas focus on a Conversational Interface, Personal Context Awareness, and Service Delegation, which are all essential parts for an IPA. The speech recognition engine that Siri has is provided by Nuance Communications, which is a speech technology company \cite{imore2016}.
+
+Siri also has hard-coded responses, or \textit{Easter eggs} for conversational and comic reasons, such as \textit{What is the meaning of life} and \textit{Who is your creator} \cite{applesiri2016}.
+
+\subsubsection{Development Specific Details and Speculations}
+Siri is most likely still under re-factoring and feature and QA development is in continuous development. The area of Artificial Intelligence and Machine Learning has become more of a priority for \textit{Apple Inc.} during the recent years, while Human-Computer Interaction has always been an integral part of Apple products and services \cite{apple2016}.
+
+22 April 2015 developers from Apple, and more specific, the Siri platform team announced at its Cupertino, California, headquarters that Siri is powered by Apache Mesos \cite{meso2015}.
+
+\subsubsection{Apache Mesos}
+\textit{Apache Mesos} is a distributed systems kernel, and according to the official website,
+
+\textit{Mesos is built using the same principles as the Linux kernel, only at a different level of abstraction. The Mesos kernel runs on every machine and provides applications (e.g., Hadoop, Spark, Kafka, Elastic Search) with API’s for resource management and scheduling across entire datacenter and cloud environments} \cite{mesos2016}.
+
+\textit{Mesos} provides the developers core functionality such as
+
+\begin{itemize}
+    \item Scalability to 10,000s of nodes
+    \item Fault-tolerant replicated master and slaves using ZooKeeper
+    \item Support for Docker containers
+    \item Native isolation between tasks with Linux Containers
+    \item Multi-resource scheduling (memory, CPU, disk, and ports)
+    \item Java, Python and C++ APIs for developing new parallel applications
+    \item Web UI for viewing cluster state \cite{mesos2016}.
+\end{itemize}
+
+
+It can therefore be concluded that most of Siri's processing power, if not all of it, is heavily dependent on this backend, and is by implication heavily dependent on an Internet connection.
+
+\subsection{SDK}
+Siri uses the concept of \textbf{domains} in order to classify what the utterance belongs to and what the user intent is. 
+With the release of iOS 10, Apple created the Siri SDK, namely \textit{SiriKit} for developers, giving them the ability to implement Siri usage in their own apps.
+SiriKit support is divided into domains, each of which defines one or more tasks that can be performed. In order to support SiriKit, apps must support one of the following domains
+
+\begin{itemize}
+    \item VoIP calling, Messaging, Payments, Photo, Workouts, Ride booking, 
+    \item CarPlay (automotive vendors only) and Restaurant reservations (requires additional support from Apple) \cite{sirikit2016}.
+\end{itemize}
+
+
+
+
+\subsection{Google Assistant}
+\textit{Google Assistant}, previously named  \textit{Google Now} and various other names, is Google's personal intelligent assistant, and was released July 9, 2012. Google Assistant uses a natural language user interface to answer questions, make recommendations, and perform actions by delegating requests to web services, which makes the service heavily dependent on Internet access. Google recently created their own application for iOS with restricted features, mostly because of the OS and SDK restrictions iOS has for third party developers \cite{googlenow2016}.
+
+Little is known of Google Assistant's system, architecture and technologies used, what language its implemented in and what dependencies it has.
+Currently, Google Inc. has their IPA under closed development and there is no SDK or any tools existent for accessing its features. 
+Therefore, Google's contribution to this area is irrelevant for this paper and will not be discussed further.
+
+\subsection{Microsoft Cortana}
+\textit{Cortana} is Microsoft's intelligent personal assistant that is able to access and change reminders, recognize natural voice, and answer questions using information from Bing. Cortana is able to act as a personal assistant for stock applications with its operating system, but is dependent on Internet access for fetching information from Bing \cite{microsoftcortana2016}.
+
+Currently, Cortana is supported for seven different languages; English, French, German, Italian, Spanish, Chinese, and Japanese.
+
+\textit{Cortana} is the only personal assistant under discussion that is cross-platform and has an open SDK, and is implemented on the following platforms; Windows Phone 8.1, Windows 10, Windows 10 Mobile, Microsoft Band, Microsoft Band 2, Android, Xbox One, iOS and Cyanogen OS \cite{microsoftcortana2016}.
+
+\textit{Cortana} was the only personal assistant out of the IPAs that are under discussion that presented an SDK for third party developers before the release of iOS 10 and \textit{SiriKit}.
+
+
+\subsection{Architecture}
+In 2014, Microsoft held a presentation describing the architecture of Cortana. Microsoft revealed that they are using \textbf{deep} ANNs for speech recognition and Bing for domain knowledge \cite{arstechnica2014}.
+
+\subsection{SDK}
+Microsoft has opened their SDK for Cortana for third party developers and gives much freedom for developers to integrate Cortana into their own applications, and even supports new actions. This section will focus on the features of the Cortana SDK. 
+
+\subsubsection{Speech}
+Microsoft provides the following speech platforms and services for your apps.
+
+\begin{itemize}
+    \item \textbf{Windows speech}
+Windows speech is a set of UWP APIs that enable both speech recognition and speech synthesis across multiple languages on all Windows-10 based devices, including IoT hardware, phones, tablets, and PCs. Cortana on Windows uses these speech APIs.
+    \item \textbf{Speech recognition}
+Recognize real-time audio from the built-in microphone, from a source other than the microphone such as a Bluetooth headset, or from a file.
+    \item \textbf{Speech synthesis}
+Convert text into audio.
+\end{itemize}
+
+
+
+
+
+\subsubsection{Cortana Actions}
+Microsoft lets third party users define \textit{actions} which provides users with functionality from their apps, based on either explicit user requests or user context. Actions are however restricted to Windows 10 Desktop and Mobile, and Android.
+
+Developers can define their own actions from scratch, or select from the two predefined actions such as \textit{ordering food} and \textit{sending messages}. Examples of own actions include, but not limited to \textit{Get nutrition info} or \textit{Turn on the lights} \cite{cortanactions2016}. This makes the Cortana SDK incredibly flexible and capable of handling a wide spectrum of intents and actions, which the other IPAs from Apple and Google do not.
+
+However, developers need to \textit{register} their actions, which can be done without any cost, and will most likely be reviewed by a developer working for the Cortana Team at Microsoft. 
+
+\section{Discussion}
+This chapter will present an analysis of the results, discussion about the limitations, methodical constraints together with a conclusion and future work of this thesis. The implementational and computational limitations are discussed with focus on restrictions on time, data quantity and machine learning implementations. Finally, the conclusion of the found results are discussed with advice of future research in the areas.
+
+\subsection{Limitations}
+The current and popular IPAs from Apple, Microsoft and Google are almost all under secret and classified development, and therefore, the architecture and technologies used by these companies are unknown. The exceptions are Apple, which recently released their \textit{Software Development Kit} (SDK) with iOS 10 for their IPA Siri and Microsoft, which released its SDK for their IPA \textit{Cortana}.
+
+
+\section{Conclusion}
+The purpose of this paper was to research the capabilities of some of the current IPAs that exist in the market today. It can be concluded that the most flexible assistant today is \textit{Cortana}, which is available for all of the popular mobile operating systems, including \textit{iOS}, \textit{Android} and \textit{Windows Phone 10 Mobile}. Measuring intelligence and technologies is not possible at this time, mainly due to the fact that the IPAs under discussion are under closed development. However, the most flexible agent is Microsofts \textit{Cortana}, which has the richest SDK and allows third party developers to customize and create their own actions for their agent. 
+On the ethics side of things, Microsoft is still the winner. Microsoft has established an ethical, well-formed agent that is open for developers worldwide and does not blindly implement new features for their agent without confirming the new actions. This is widely talked about in \textit{Superintelligence}, where a stable, common ground needs to be established for the AI in question before the public can start tweaking the source code for the intelligence. \cite{bostrom2014superintelligence}. With the most complex agent, hopefully, Microsoft will be open to working with Artificial Intelligence groups such as \textbf{OpenAI} which aims to promote and develop friendly AI in such a way as to benefit, rather than harm, humanity as a whole \cite{openai2016}.
+
+\subsection{Future research}
+It has been established that intelligent personal assistants are entities with many complex components that require skills in programming, statistics, machine learning, artificial intelligence and ethics.
+
+The results of this thesis add to previous research and puts emphasis on statistics, machine learning, human-computer interaction and ethics.
+
+Future research in this area could go deeper into the components that are necessary and essential for the development and creation of IPAs, the sustainability between the components, as well as building an entity with a rich SDK that allows for further extension in terms of the technical skills and competence required and what ethics to follow when doing so. When or if Google releases SDKs for its IPAs, it would be of great interest to compare these three IPAs and their respective SDKs in order to see what platform has come the furthest in the area, and by natural implication, the one that is contributing the most to the area.
+\newpage
+
+%%
+%% Start line numbering here if you want
+%%
+% \linenumbers
+
+% Computer program descriptions should contain the following
+% PROGRAM SUMMARY.
+
+
+%% The Appendices part is started with the command \appendix;
+%% appendix sections are then done as normal sections
+%% \appendix
+
+%% \section{}
+%% \label{}
+
+%% References
+%%
+%% Following citation commands can be used in the body text:
+%% Usage of \cite is as follows:
+%%   \cite{key}         ==>>  [#]
+%%   \cite[chap. 2]{key} ==>> [#, chap. 2]
+%%
+
+%% References with bibTeX database:
+
+\nocite{*}
+\bibliographystyle{elsarticle-num}
+\bibliography{references}
+
+%% Authors are advised to submit their bibtex database files. They are
+%% requested to list a bibtex style file in the manuscript if they do
+%% not want to use elsarticle-num.bst.
+
+%% References without bibTeX database:
+
+% \begin{thebibliography}{00}
+
+%% \bibitem must have the following form:
+%%   \bibitem{key}...
+%%
+
+% \bibitem{}
+
+% \end{thebibliography}
+
+
+\end{document}
+
+%%
+%% End of file 
